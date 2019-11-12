@@ -41,6 +41,7 @@
                     moreOptions.appendChild(label2);
                 } else {
                     moreOptions.style.display = "none";
+                    moreOptions.remove(); //Not removing the created elements will not allow user to submit the form. Comment it out to see the diffrence.
                 }
             }
             </script>
