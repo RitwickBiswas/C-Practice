@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>Something</head>
+<body>
+        <script>
+                function myFunction() {
+              // Get the checkbox using its ID
+                var checkBox = document.getElementById("myCheck");
+                // Get the output div container
+                var moreOptions = document.getElementById("displayMoreOptions");
+            
+                // If the checkbox is checked, display the output text
+                if (checkBox.checked == true){
+                    moreOptions.style.display = "block";
+                    //Dynamically creation of HTML Elements using JavaScript
+                    //<input type="checkbox" id="myCheck"  onclick="myFunction()" name="subOption1">
+                    var createCheckbox = document.createElement('input'); //Creation of <input> tag
+                    createCheckbox.type = "checkbox"; //The type of input element it is
+                    createCheckbox.name = "subOption1"; //name of the input element
+                    createCheckbox.value = "x1"; //Value that will be passed
+                    createCheckbox.id = "subOption1_id"; //ID of the element
+                    createCheckbox.required = true; //Required field
+                    var label = document.createElement('label'); //Generates the text holder to be shown after the checkbox
+                    label.htmlFor = "subOption1_id";//search the ID, corresponding to whome the particular text is to be shown
+                    label.appendChild(document.createTextNode('Required Option 1\n')); //Inserts the display text after the checkbox
+                    moreOptions.appendChild(createCheckbox);//Append the element into the DIV with "ID = displayMoreOptions"
+                    moreOptions.appendChild(label);//Append the Label after the checkbox
+                    moreOptions.appendChild(document.createElement("br")); //Adding a Line Break - Same as <br> in html
+
+                    //Dynamically creation of HTML Elements using JavaScript
+                    var createCheckbox2 = document.createElement('input');
+                    createCheckbox2.type = "checkbox";
+                    createCheckbox2.name = "subOption2";
+                    createCheckbox2.value = "x2";
+                    createCheckbox2.id = "subOption2_id";
+                    createCheckbox2.required = false;
+                    var label2 = document.createElement('label');
+                    label2.htmlFor = "subOption2_id";
+                    label2.appendChild(document.createTextNode('Unrequired Option 2'));
+                    moreOptions.appendChild(createCheckbox2);
+                    moreOptions.appendChild(label2);
+                } else {
+                    moreOptions.style.display = "none";
+                }
+            }
+            </script>
+
+    <form action="submit.html">
+            <input type="checkbox" id="myCheck" name="Option1" value="x1" onclick="myFunction()"> Click to display option 1<br>
+                <div id="displayMoreOptions" style="display:none">
+                        <!-- Empty Div container to display the dynamically generated CheckBoxes -->
+                </div>
+            <input type="checkbox" name="vehicle1" value="Boat"> Click to display option 2<br>
+
+            
+            <input type="submit" value="Submit">
+    </form>
+    
+</body>
+
